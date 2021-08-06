@@ -3,13 +3,18 @@ import { useHttpClient } from "../../hooks/HttpClient";
 
 import "./genre.styles.css";
 
-const Genre = ({ genre }) => {
+const Genre = ({ genre, saveResult, loading }) => {
   const { color, bgColor, name } = genre;
-  const { isLoading, error, sendRequest } = useHttpClient();
+  const { sendRequest } = useHttpClient();
 
   const handleRequest = async () => {
-    const fetchGenres = await sendRequest();
-    console.log("Fetched", fetchGenres);
+    loading(true);
+    const fetchURL = "https://shazam-core.p.rapidapi.com/v1/charts/genre-world";
+    const fetchParams = { genre_code: genre.code.toUpperCase(), limit: "20" };
+    const fetchedData = await sendRequest(fetchURL, fetchParams);
+
+    loading(false);
+    saveResult(fetchedData);
   };
 
   return (

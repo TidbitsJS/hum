@@ -5,13 +5,13 @@ export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-  const sendRequest = async () => {
+  const sendRequest = async (fetchURL, fetchParams) => {
     setIsLoading(true);
 
     const options = {
       method: "GET",
-      url: "https://shazam-core.p.rapidapi.com/v1/charts/genre-world",
-      params: { genre_code: "POP", limit: "10" },
+      url: fetchURL,
+      params: fetchParams,
       headers: {
         "x-rapidapi-key": process.env.REACT_APP_XRAPIDAPI_KEY,
         "x-rapidapi-host": "shazam-core.p.rapidapi.com",
@@ -22,7 +22,6 @@ export const useHttpClient = () => {
       const response = await axios.request(options);
       const responseData = await response.data;
 
-      console.log("custom hook data", responseData);
       setIsLoading(false);
       return responseData;
     } catch (err) {

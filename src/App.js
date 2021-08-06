@@ -1,6 +1,6 @@
 import Welcome from "./components/welcome/welcome.component";
 import SearchPage from "./pages/search/search-page.component";
-import DisplayPage from "./pages/display/display.component";
+// import DisplayPage from "./pages/display/display.component";
 
 import "./App.css";
 
@@ -9,7 +9,7 @@ function App() {
     <div>
       <Welcome />
       <SearchPage />
-      <DisplayPage />
+      {/* <DisplayPage /> */}
     </div>
   );
 }

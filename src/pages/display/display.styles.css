@@ -1,5 +1,4 @@
 .hum__display-page__container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
