@@ -1,0 +1,30 @@
+.hum__genre-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in;
+}
+
+.hum__genre-container__text {
+  width: 90%;
+  height: 90%;
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-family: var(--font-alt);
+  color: var(--text-blue);
+  font-weight: 600;
+}
+
+.hum__genre-container:hover {
+  transform: scale(0.97);
+}

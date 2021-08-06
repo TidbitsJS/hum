@@ -1,0 +1,32 @@
+.hum__display-page__container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  background: var(--light-bg);
+}
+
+.hum__display-page__container__genres {
+  display: flex;
+  flex-direction: column;
+}
+
+.hum__display-page__container__genres-text {
+  margin-bottom: 1rem;
+}
+
+.hum__display-page__container__genres-text h1 {
+  font-family: var(--font-base);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.hum__display-page__container__genres-text span {
+  color: var(--text-orange);
+  text-transform: capitalize;
+}
+
+.hum__display-page__container__genres-box {
+  display: flex;
+}
