@@ -26,6 +26,43 @@
   text-transform: capitalize;
 }
 
+.hum__display-page__container__genre-navigation {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hum__display-page__container__genre-navigation__next,
+.hum__display-page__container__genre-navigation__back {
+  font-size: 2rem;
+  opacity: 0.2;
+  transition: 0.3s ease-in;
+  z-index: 1;
+  position: absolute;
+}
+
+.hum__display-page__container__genre-navigation__next {
+  right: 0%;
+}
+
 .hum__display-page__container__genres-box {
   display: flex;
+  flex: 1;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hum__display-page__container__genres-box::-webkit-scrollbar {
+  display: none;
+}
+
+.hum__display-page__container__genre-navigation__next:hover,
+.hum__display-page__container__genre-navigation__back:hover {
+  opacity: 1;
 }
