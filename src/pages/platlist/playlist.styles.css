@@ -12,6 +12,36 @@
   padding: 0rem 2rem;
 }
 
+.hum__song-result__container_homelink {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: flex-start;
+  align-content: center;
+
+  color: var(--text-blue);
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.hum__song-result__container__playlist-box_showing {
+  margin-bottom: 1rem;
+  display: flex;
+  text-align: left;
+  color: var(--text-blue);
+  font-size: 1.2rem;
+  font-weight: 700px;
+  font-family: var(--font-alt);
+}
+
+.hum__song-result__container__playlist-box_showing span {
+  color: var(--bold-orange);
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-left: 0.3rem;
+}
+
 .hum__song-result__loader {
   display: flex;
   justify-content: center;

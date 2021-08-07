@@ -44,8 +44,33 @@
   outline: none;
 }
 
+.hum__song-exception__handling {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hum__song-exception__handling div {
+  background: var(--primary-color);
+  width: 60%;
+  height: 250px;
+
+  box-shadow: 0px 0px 5px rgba(255, 42, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-alt);
+  font-weight: 700;
+  color: var(--bold-orange);
+}
+
 @media screen and (max-width: 500px) {
   .hum__search-container__search-input input {
     width: 70%;
+  }
+
+  .hum__song-exception__handling div {
+    width: 90%;
   }
 }

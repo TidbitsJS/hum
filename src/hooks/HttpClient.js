@@ -5,7 +5,7 @@ export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-  const sendRequest = async (fetchURL, fetchParams) => {
+  const sendRequest = async (fetchURL, fetchParams, fetchHost) => {
     setIsLoading(true);
 
     const options = {
@@ -14,7 +14,7 @@ export const useHttpClient = () => {
       params: fetchParams,
       headers: {
         "x-rapidapi-key": process.env.REACT_APP_XRAPIDAPI_KEY,
-        "x-rapidapi-host": "shazam-core.p.rapidapi.com",
+        "x-rapidapi-host": fetchHost,
       },
     };
 

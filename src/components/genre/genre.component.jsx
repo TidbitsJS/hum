@@ -8,6 +8,7 @@ const Genre = ({ genre }) => {
 
   const fetchURL = "https://shazam-core.p.rapidapi.com/v1/charts/genre-world";
   const fetchParams = { genre_code: code.toUpperCase(), limit: "20" };
+  const fetchHost = "shazam-core.p.rapidapi.com";
 
   return (
     <Link
@@ -16,6 +17,7 @@ const Genre = ({ genre }) => {
         state: {
           urlParams: fetchParams,
           url: fetchURL,
+          host: fetchHost,
         },
       }}
     >
