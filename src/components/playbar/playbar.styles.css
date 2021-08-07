@@ -1,0 +1,65 @@
+.hum__song-playbar__container {
+  display: flex;
+  flex-direction: row;
+
+  background: #fff;
+  margin: 0.3rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.hum__song-playbar__container:hover {
+  box-shadow: none;
+  border-radius: 0px;
+}
+
+.hum_song-playbar__container__details {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+}
+
+.hum_song-playbar__container__img-div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-right: 1rem;
+}
+
+.hum_song-playbar__container__img-div img {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+}
+
+.hum_song-playbar__container__desc-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.hum_song-playbar__container__desc-div h5 {
+  font-family: var(--font-alt);
+  letter-spacing: 0.6px;
+  text-overflow: ellipsis;
+}
+
+.hum_song-playbar__container__desc-div p {
+  font-family: var(--font-base);
+  font-size: 0.9rem;
+  color: var(--text-blue);
+  text-overflow: ellipsis;
+}
+
+.hum_song-playbar__container__btn-div {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import PlayBar from "../../components/playbar/playbar.component";
 import { useHttpClient } from "../../hooks/HttpClient";
 
 import "./playlist.styles.css";
@@ -19,6 +20,7 @@ const PlaylistPage = () => {
         linkData.state.urlParams
       );
 
+      console.log("Result", result);
       setPlaylist(result);
       setIsLoading(false);
     };
@@ -30,7 +32,16 @@ const PlaylistPage = () => {
     <div className="hum__song-result__container">
       {!isLoading ? (
         playlist ? (
-          playlist.map((play) => <div>{play.title}</div>)
+          <div className="hum__song-result__container__playlist-box">
+            {playlist.map((play) => (
+              <PlayBar
+                title={play.title}
+                subtitle={play.subtitle}
+                img={play.images.coverart}
+                key={play.title}
+              />
+            ))}
+          </div>
         ) : null
       ) : (
         <div className="hum__song-result__loader">

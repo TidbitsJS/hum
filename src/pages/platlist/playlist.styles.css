@@ -5,8 +5,24 @@
   flex-direction: column;
 }
 
+.hum__song-result__container__playlist-box {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0rem 2rem;
+}
+
 .hum__song-result__loader {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .hum__song-result__container {
+    padding: 1rem 0.5rem;
+  }
+  .hum__song-result__container__playlist-box {
+    padding: 0rem 0;
+  }
 }
