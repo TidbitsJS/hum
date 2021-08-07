@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
 
 import "./welcome.styles.css";
@@ -8,7 +9,9 @@ const Welcome = () => {
     <div className="about-hum">
       <div className="about-hum__info-container">
         <div className="about-hum__info-container__logo">
-          <img src={logo} alt="hum-logo" />
+          <Link to="/">
+            <img src={logo} alt="hum-logo" />
+          </Link>
         </div>
         <div className="about-hum__info-container__text">
           <div className="about-hum__info-container__text-heading">

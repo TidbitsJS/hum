@@ -1,0 +1,12 @@
+.hum__song-result__container {
+  background: var(--light-bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hum__song-result__loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
