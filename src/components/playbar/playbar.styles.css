@@ -3,24 +3,36 @@
   flex-direction: row;
 
   background: #fff;
-  margin: 0.3rem;
-  padding: 0.5rem;
+  padding: 0.7rem 0.5rem;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid var(--primary-color);
 
   cursor: pointer;
   transition: all 0.3s ease-in;
 }
 
 .hum__song-playbar__container:hover {
-  box-shadow: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
   border-radius: 0px;
+  background: var(--orange-bg);
 }
 
 .hum_song-playbar__container__details {
   flex: 3;
   display: flex;
   flex-direction: row;
+}
+
+.hum_song-playbar__container__playNo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.hum_song-playbar__container__playNo p {
+  font-weight: 700;
+  font-family: var(--font-alt);
 }
 
 .hum_song-playbar__container__img-div {
@@ -32,8 +44,8 @@
 }
 
 .hum_song-playbar__container__img-div img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 
   border-radius: 50%;
 }

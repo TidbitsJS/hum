@@ -33,12 +33,13 @@ const PlaylistPage = () => {
       {!isLoading ? (
         playlist ? (
           <div className="hum__song-result__container__playlist-box">
-            {playlist.map((play) => (
+            {playlist.map((play, index) => (
               <PlayBar
                 title={play.title}
                 subtitle={play.subtitle}
                 img={play.images.coverart}
-                key={play.title}
+                key={play.title + index}
+                playNo={index + 1}
               />
             ))}
           </div>

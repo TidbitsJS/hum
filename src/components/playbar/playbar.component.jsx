@@ -3,10 +3,13 @@ import { AiFillPlayCircle } from "react-icons/ai";
 
 import "./playbar.styles.css";
 
-const PlayBar = ({ title, subtitle, img }) => {
+const PlayBar = ({ playNo, title, subtitle, img }) => {
   return (
     <div className="hum__song-playbar__container">
       <div className="hum_song-playbar__container__details">
+        <div className="hum_song-playbar__container__playNo">
+          <p>{playNo}.</p>
+        </div>
         <div className="hum_song-playbar__container__img-div">
           <img src={img} alt={title} />
         </div>

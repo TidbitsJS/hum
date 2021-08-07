@@ -1,6 +1,9 @@
 .hum__search-container {
   margin-top: 2rem;
-  padding-top: 1rem;
+
+  position: sticky;
+  top: 0;
+  left: 0;
 
   display: flex;
   flex-direction: column;
@@ -12,10 +15,6 @@
   align-items: center;
   width: 100%;
 
-  position: sticky;
-  top: 0;
-  left: 0;
-
   background: #fff;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.02);
 
@@ -24,11 +23,29 @@
 
 .hum__search-container__search-input input {
   width: 60%;
-  border: 1px solid var(--text-orange);
+  border: 2px solid var(--text-orange);
   padding: 0.5rem 1rem;
   font-family: var(--font-alt);
-  background: var(--primary-color);
+  background: var(--light-bg);
   outline: none;
   color: #000;
-  border-radius: 1rem;
+}
+
+.hum__search-container__search-input button {
+  padding: 0.5rem 0.7rem;
+  border: 2px solid var(--text-orange);
+
+  background: var(--text-orange);
+  color: #fff;
+  font-family: var(--font-alt);
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  outline: none;
+}
+
+@media screen and (max-width: 500px) {
+  .hum__search-container__search-input input {
+    width: 70%;
+  }
 }
