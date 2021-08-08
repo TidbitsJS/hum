@@ -5,7 +5,7 @@ export const genresColorSchema = [
     bgColor: "#d7f8ff",
   },
   {
-    code: "hip_hop_rap",
+    code: "HIP_HOP_RAP",
     color: "#E2C5C7",
     bgColor: "#FCE6F0",
   },

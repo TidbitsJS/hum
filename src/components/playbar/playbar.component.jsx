@@ -1,11 +1,23 @@
 import React from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
+import { withRouter } from "react-router";
 
 import "./playbar.styles.css";
 
-const PlayBar = ({ playNo, title, subtitle, img }) => {
+const PlayBar = ({ playNo, title, subtitle, img, history }) => {
+  const handleClick = () => {
+    history.push({
+      pathname: `/${title}/lyrics`,
+      state: {
+        title: title,
+        artist: subtitle,
+        cover: img,
+      },
+    });
+  };
+
   return (
-    <div className="hum__song-playbar__container">
+    <div className="hum__song-playbar__container" onClick={handleClick}>
       <div className="hum_song-playbar__container__details">
         <div className="hum_song-playbar__container__playNo">
           <p>{playNo}.</p>
@@ -25,4 +37,4 @@ const PlayBar = ({ playNo, title, subtitle, img }) => {
   );
 };
 
-export default PlayBar;
+export default withRouter(PlayBar);

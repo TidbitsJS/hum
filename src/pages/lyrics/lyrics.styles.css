@@ -1,0 +1,62 @@
+.hum__lyrics__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  background: var(--light-bg);
+}
+
+.hum__lyrics__container__text {
+  white-space: break-spaces;
+  text-align: center;
+  font-family: var(--font-alt);
+  color: var(--text-blue);
+  font-weight: 600;
+  word-spacing: 1px;
+
+  margin-top: 2rem;
+}
+
+.hum__lyrics__container_homelink {
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+
+  color: var(--text-blue);
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.hum__lyrics__container__song-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+
+  margin-top: 2rem;
+}
+
+.hum__lyrics__container__song-info p {
+  margin: 0.5rem 0;
+  text-align: center;
+
+  color: var(--text-blue);
+  font-weight: 800;
+  text-transform: capitalize;
+  font-family: var(--font-base);
+}
+
+.hum__lyrics__container__song-info img {
+  width: 100%;
+  height: 100%;
+}
+
+.hum__lyrics__container__song-info p:last-child {
+  color: var(--text-orange);
+  font-family: var(--font-alt);
+}

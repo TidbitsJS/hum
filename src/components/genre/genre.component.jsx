@@ -14,7 +14,7 @@ const Genre = ({
   return (
     <Link
       to={{
-        pathname: `/${name}/playlist`,
+        pathname: `/${code}/playlist`,
         state: {
           urlParams: fetchParams,
           url: fetchURL,

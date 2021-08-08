@@ -5,6 +5,7 @@ import DisplayPage from "./pages/display/display.component";
 import PlaylistPage from "./pages/platlist/playlist.component";
 
 import "./App.css";
+import LyricsPage from "./pages/lyrics/lyrics.component";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={DisplayPage} />
           <Route exact path="/:key/playlist" component={PlaylistPage} />
+          <Route exact path="/:song/lyrics" component={LyricsPage} />
         </Switch>
       </Router>
     </div>
