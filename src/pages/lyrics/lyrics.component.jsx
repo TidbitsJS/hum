@@ -32,12 +32,14 @@ const LyricsPage = () => {
       if (
         response.data &&
         data.message.body.lyrics &&
-        data.message.body.lyrics.lyrics_body
+        data.message.body.lyrics.lyrics_body &&
+        data.message.body.lyrics.lyrics_body !== ""
       ) {
         setLyrics(data.message.body.lyrics.lyrics_body);
         setIsLoading(false);
       } else {
-        setLyrics("no lyrics");
+        setLyrics("sorry, no lyrics");
+        setIsLoading(false);
       }
     };
 

@@ -26,6 +26,8 @@ const PlaylistPage = () => {
 
       console.log("Result", result);
       if (Object.keys(result).length !== 0 || !result || error) {
+        setIsError(null);
+
         if (linkData.state.song) {
           let filterData = [];
           result.tracks.hits.forEach((list, index) =>

@@ -27,13 +27,13 @@ const DisplayPage = () => {
       let fetchedData = await sendRequest(fetchURL, null, fetchHost);
 
       setAllGenres(fetchedData.global.genres);
+      setIsLoading(false);
     };
 
     const fetchTracks = async () => {
       let trackData = await sendRequest(trackURL, trackParams, fetchHost);
 
       setAllTracks(trackData.tracks);
-      setIsLoading(false);
     };
 
     fetchGenre();

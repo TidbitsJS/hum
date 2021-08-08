@@ -50,6 +50,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .hum__song-exception__handling div {
@@ -64,6 +65,7 @@
   font-family: var(--font-alt);
   font-weight: 700;
   color: var(--bold-orange);
+  padding: 0 0.3rem;
 }
 
 @media screen and (max-width: 500px) {
