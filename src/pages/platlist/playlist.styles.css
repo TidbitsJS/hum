@@ -27,10 +27,11 @@
 .hum__song-result__container__playlist-box_showing {
   margin-bottom: 1rem;
   display: flex;
+  flex-wrap: wrap;
   text-align: left;
   color: var(--text-blue);
   font-size: 1.2rem;
-  font-weight: 700px;
+  font-weight: 700;
   font-family: var(--font-alt);
 }
 
