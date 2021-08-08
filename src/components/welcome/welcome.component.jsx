@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import music from "../../assets/music.svg";
 
 import "./welcome.styles.css";
 
@@ -29,7 +30,9 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-      <div className="about-hum__img-container"></div>
+      <div className="about-hum__img-container">
+        <img src={music} alt="music" />
+      </div>
     </div>
   );
 };
