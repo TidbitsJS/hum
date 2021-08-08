@@ -66,3 +66,15 @@
 .hum__display-page__container__genre-navigation__back:hover {
   opacity: 1;
 }
+
+.hum__display-page__container__tracks {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hum__display-page__container__tracks-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
