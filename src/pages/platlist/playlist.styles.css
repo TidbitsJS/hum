@@ -42,12 +42,6 @@
   margin-left: 0.3rem;
 }
 
-.hum__song-result__loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @media screen and (max-width: 600px) {
   .hum__song-result__container {
     padding: 1rem 0.5rem;

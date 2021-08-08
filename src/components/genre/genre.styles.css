@@ -1,6 +1,6 @@
 .hum__genre-container {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
 
   display: flex;
@@ -9,6 +9,7 @@
   margin: 0.5rem 1rem;
   cursor: pointer;
   transition: transform 0.3s ease-in;
+  padding: 0.2rem;
 }
 
 .hum__genre-container__text {
@@ -20,9 +21,18 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
+  text-align: center;
   font-family: var(--font-alt);
   color: var(--text-blue);
   font-weight: 600;
+
+  padding: inherit;
+}
+
+.hum__genre-container__text p {
+  word-break: break-all;
+  font-size: 0.8rem;
+  width: inherit;
 }
 
 .hum__genre-container:hover {

@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 import "./genre.styles.css";
 
-const Genre = ({ genre }) => {
-  const { color, bgColor, name, code } = genre;
-
+const Genre = ({
+  genre: { name, urlPath },
+  colors: { code, color, bgColor },
+}) => {
   const fetchURL = "https://shazam-core.p.rapidapi.com/v1/charts/genre-world";
   const fetchParams = { genre_code: code.toUpperCase(), limit: "20" };
   const fetchHost = "shazam-core.p.rapidapi.com";
@@ -29,7 +30,7 @@ const Genre = ({ genre }) => {
           className="hum__genre-container__text"
           style={{ background: color }}
         >
-          {name}
+          <p>{name}</p>
         </div>
       </div>
     </Link>

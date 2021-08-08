@@ -1,44 +1,34 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Genre from "../../components/genre/genre.component";
 import { AiFillLeftCircle, AiFillRightCircle } from "react-icons/ai";
+import { useHttpClient } from "../../hooks/HttpClient";
+import Spinner from "../../components/spinner/spinner.component";
+import { genresColorSchema } from "../../data/genreColor";
 
 import "./display.styles.css";
 
-const random = [
-  {
-    color: " #6DBFE7",
-    bgColor: "#d7f8ff",
-    name: "rap",
-    code: "Hip_hop_rap",
-  },
-  {
-    color: "#E2C5C7",
-    bgColor: "#FCE6F0",
-    name: "pop",
-    code: "pop",
-  },
-  {
-    color: "#F1CC79",
-    bgColor: "#FFEAB9",
-    name: "dance",
-    code: "dance",
-  },
-  {
-    color: "#ff8c7d",
-    bgColor: "#FDDFD8",
-    name: "rock",
-    code: "rock",
-  },
-  {
-    color: "#7ce69d",
-    bgColor: "#bfffd3",
-    name: "soul",
-    code: "soul_rnb",
-  },
-];
-
-const DisplayPage = ({ saveResult, loading }) => {
+const DisplayPage = () => {
   const navRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
+  const [allGenres, setAllGenres] = useState([]);
+  const { error, sendRequest } = useHttpClient();
+
+  const fetchURL = "https://shazam.p.rapidapi.com/charts/list";
+  const fetchHost = "shazam.p.rapidapi.com";
+
+  useEffect(() => {
+    const fetchGenre = async () => {
+      setIsLoading(true);
+      let fetchedData = await sendRequest(fetchURL, null, fetchHost);
+      console.log("Fetched genres", fetchedData);
+
+      setAllGenres(fetchedData.global.genres);
+      setIsLoading(false);
+      console.log("All genres", allGenres);
+    };
+
+    fetchGenre();
+  }, [sendRequest]);
 
   const handleNav = (direction) => {
     if (direction === "left") {
@@ -56,27 +46,30 @@ const DisplayPage = ({ saveResult, loading }) => {
             Explore <span>genres</span>
           </h1>
         </div>
-        <div className="hum__display-page__container__genre-navigation">
-          <div className="hum__display-page__container__genre-navigation__back">
-            <AiFillLeftCircle onClick={() => handleNav("left")} />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <div className="hum__display-page__container__genre-navigation">
+            <div className="hum__display-page__container__genre-navigation__back">
+              <AiFillLeftCircle onClick={() => handleNav("left")} />
+            </div>
+            <div
+              className="hum__display-page__container__genres-box"
+              ref={navRef}
+            >
+              {allGenres.map((genre, index) => (
+                <Genre
+                  genre={genre}
+                  colors={genresColorSchema[index]}
+                  key={genre.name + genre.urlPath}
+                />
+              ))}
+            </div>
+            <div className="hum__display-page__container__genre-navigation__next">
+              <AiFillRightCircle onClick={() => handleNav("right")} />
+            </div>
           </div>
-          <div
-            className="hum__display-page__container__genres-box"
-            ref={navRef}
-          >
-            {random.map((genre) => (
-              <Genre
-                genre={genre}
-                saveResult={saveResult}
-                loading={loading}
-                key={genre.name + genre.color}
-              />
-            ))}
-          </div>
-          <div className="hum__display-page__container__genre-navigation__next">
-            <AiFillRightCircle onClick={() => handleNav("right")} />
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

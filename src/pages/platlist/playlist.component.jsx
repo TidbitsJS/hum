@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import PlayBar from "../../components/playbar/playbar.component";
+import Spinner from "../../components/spinner/spinner.component";
 import { useHttpClient } from "../../hooks/HttpClient";
 
 import "./playlist.styles.css";
@@ -75,12 +76,7 @@ const PlaylistPage = () => {
               </div>
             ) : null
           ) : (
-            <div className="hum__song-result__loader">
-              <div className="lds-ripple">
-                <div></div>
-                <div></div>
-              </div>
-            </div>
+            <Spinner />
           )}
         </div>
       )}

@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export const useHttpClient = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
-  const sendRequest = async (fetchURL, fetchParams, fetchHost) => {
+  const sendRequest = useCallback(async (fetchURL, fetchParams, fetchHost) => {
     setIsLoading(true);
 
     const options = {
@@ -29,7 +29,7 @@ export const useHttpClient = () => {
       setIsLoading(false);
       throw err;
     }
-  };
+  }, []);
 
   return { isLoading, error, sendRequest };
 };
