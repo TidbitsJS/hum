@@ -14,7 +14,7 @@ const DisplayPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [allGenres, setAllGenres] = useState([]);
   const [allTracks, setAllTracks] = useState([]);
-  const { error, sendRequest } = useHttpClient();
+  const { sendRequest } = useHttpClient();
 
   const fetchURL = "https://shazam.p.rapidapi.com/charts/list";
   const trackURL = "https://shazam.p.rapidapi.com/charts/track";

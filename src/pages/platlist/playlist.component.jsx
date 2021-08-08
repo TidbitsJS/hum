@@ -24,7 +24,6 @@ const PlaylistPage = () => {
         linkData.state.host
       );
 
-      console.log("Result", result);
       if (Object.keys(result).length !== 0 || !result || error) {
         setIsError(null);
 

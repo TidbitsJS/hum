@@ -10,8 +10,6 @@ const LyricsPage = () => {
   const [loading, setIsLoading] = useState(false);
   const lyricsDetails = useLocation();
 
-  console.log("Lyrc", lyricsDetails);
-
   const fetchURL = `https://cors-access-allow.herokuapp.com/http://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_artist=${lyricsDetails.state.artist}&q_track=${lyricsDetails.state.title}&apikey=${process.env.REACT_APP_MUSIX_API_KEY}`;
 
   const options = {
@@ -27,7 +25,6 @@ const LyricsPage = () => {
       setIsLoading(true);
       const response = await axios.request(options);
       const data = response.data;
-      console.log("data", data, data.message.body.lyrics.lyrics_body);
 
       if (
         response.data &&
