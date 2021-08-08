@@ -8,6 +8,7 @@
   flex-direction: column;
 
   margin: 1rem 0.6rem;
+  cursor: pointer;
 }
 
 .hum__track__text-block {

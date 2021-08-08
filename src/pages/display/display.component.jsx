@@ -13,24 +13,32 @@ const DisplayPage = () => {
   const navRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [allGenres, setAllGenres] = useState([]);
+  const [allTracks, setAllTracks] = useState([]);
   const { error, sendRequest } = useHttpClient();
 
   const fetchURL = "https://shazam.p.rapidapi.com/charts/list";
+  const trackURL = "https://shazam.p.rapidapi.com/charts/track";
+  const trackParams = { locale: "en-US", pageSize: "20", startFrom: "0" };
   const fetchHost = "shazam.p.rapidapi.com";
 
-  // useEffect(() => {
-  //   const fetchGenre = async () => {
-  //     setIsLoading(true);
-  //     let fetchedData = await sendRequest(fetchURL, null, fetchHost);
-  //     console.log("Fetched genres", fetchedData);
+  useEffect(() => {
+    const fetchGenre = async () => {
+      setIsLoading(true);
+      let fetchedData = await sendRequest(fetchURL, null, fetchHost);
 
-  //     setAllGenres(fetchedData.global.genres);
-  //     setIsLoading(false);
-  //     console.log("All genres", allGenres);
-  //   };
+      setAllGenres(fetchedData.global.genres);
+    };
 
-  //   fetchGenre();
-  // }, [sendRequest]);
+    const fetchTracks = async () => {
+      let trackData = await sendRequest(trackURL, trackParams, fetchHost);
+
+      setAllTracks(trackData.tracks);
+      setIsLoading(false);
+    };
+
+    fetchGenre();
+    fetchTracks();
+  }, [sendRequest]);
 
   const handleNav = (direction) => {
     if (direction === "left") {
@@ -42,76 +50,57 @@ const DisplayPage = () => {
 
   return (
     <div className="hum__display-page__container">
-      <div className="hum__display-page__container__genres">
-        <div className="hum__display-page__container__genres-text">
-          <h1>
-            Explore <span>genres</span>
-          </h1>
-        </div>
-        {isLoading ? (
-          <Spinner />
-        ) : (
-          <div className="hum__display-page__container__genre-navigation">
-            <div className="hum__display-page__container__genre-navigation__back">
-              <AiFillLeftCircle onClick={() => handleNav("left")} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className="hum__display-page__container__genres">
+            <div className="hum__display-page__container__genres-text">
+              <h1>
+                Explore <span>genres</span>
+              </h1>
             </div>
-            {/* <div
-              className="hum__display-page__container__genres-box"
-              ref={navRef}
-            >
-              {allGenres.map((genre, index) => (
-                <Genre
-                  genre={genre}
-                  colors={genresColorSchema[index]}
-                  key={genre.name + genre.urlPath}
-                />
-              ))}
-            </div> */}
-            <div className="hum__display-page__container__genre-navigation__next">
-              <AiFillRightCircle onClick={() => handleNav("right")} />
+
+            <div className="hum__display-page__container__genre-navigation">
+              <div className="hum__display-page__container__genre-navigation__back">
+                <AiFillLeftCircle onClick={() => handleNav("left")} />
+              </div>
+              <div
+                className="hum__display-page__container__genres-box"
+                ref={navRef}
+              >
+                {allGenres.map((genre, index) => (
+                  <Genre
+                    genre={genre}
+                    colors={genresColorSchema[index]}
+                    key={genre.name + genre.urlPath}
+                  />
+                ))}
+              </div>
+              <div className="hum__display-page__container__genre-navigation__next">
+                <AiFillRightCircle onClick={() => handleNav("right")} />
+              </div>
             </div>
           </div>
-        )}
-      </div>
-      <div className="hum__display-page__container__tracks">
-        <div className="hum__display-page__container__genres-text">
-          <h1>
-            Browse <span>Tracks</span>
-          </h1>
-        </div>
-        <div className="hum__display-page__container__tracks-box">
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-          <TrackCard
-            name="something"
-            color={randomColor()}
-            img="https://is3-ssl.mzstatic.com/image/thumb/Music125/v4/aa/02/57/aa025710-a0c6-90e9-4a18-2881efad4855/190296614316.jpg/400x400cc.jpg"
-          />
-        </div>
-      </div>
+          <div className="hum__display-page__container__tracks">
+            <div className="hum__display-page__container__genres-text">
+              <h1>
+                Browse <span>Tracks</span>
+              </h1>
+            </div>
+            <div className="hum__display-page__container__tracks-box">
+              {allTracks.map((track) => (
+                <TrackCard
+                  name={track.title}
+                  color={randomColor()}
+                  key={track.name + track.subtitle + track.key}
+                  img={track.images.coverart}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
