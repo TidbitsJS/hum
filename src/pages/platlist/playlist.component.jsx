@@ -3,6 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import PlayBar from "../../components/playbar/playbar.component";
 import Spinner from "../../components/spinner/spinner.component";
 import { useHttpClient } from "../../hooks/HttpClient";
+import defaultImg from "../../assets/default.svg";
 
 import "./playlist.styles.css";
 
@@ -69,7 +70,7 @@ const PlaylistPage = () => {
                   <PlayBar
                     title={play.title}
                     subtitle={play.subtitle}
-                    img={play.images.coverart}
+                    img={play.images ? play.images.coverart : defaultImg}
                     key={play.title + index}
                     playNo={index + 1}
                   />
