@@ -1,10 +1,11 @@
-import React from "react";
-import { AiFillPlayCircle } from "react-icons/ai";
+import React, { useState } from "react";
+import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { withRouter } from "react-router";
+import { BsMusicNoteList } from "react-icons/bs";
 
 import "./playbar.styles.css";
 
-const PlayBar = ({ playNo, title, subtitle, img, history }) => {
+const PlayBar = ({ playNo, title, subtitle, img, audio, history }) => {
   const handleClick = () => {
     history.push({
       pathname: `/${title}/lyrics`,
@@ -12,12 +13,13 @@ const PlayBar = ({ playNo, title, subtitle, img, history }) => {
         title: title,
         artist: subtitle,
         cover: img,
+        audio: audio,
       },
     });
   };
 
   return (
-    <div className="hum__song-playbar__container" onClick={handleClick}>
+    <div className="hum__song-playbar__container">
       <div className="hum_song-playbar__container__details">
         <div className="hum_song-playbar__container__playNo">
           <p>{playNo}.</p>
@@ -32,6 +34,9 @@ const PlayBar = ({ playNo, title, subtitle, img, history }) => {
       </div>
       <div className="hum_song-playbar__container__btn-div">
         <AiFillPlayCircle fontSize={28} />
+        <div className="hum_song-playbar__container__btn-div_lyrics">
+          <BsMusicNoteList fontSize={13} onClick={handleClick} />
+        </div>
       </div>
     </div>
   );

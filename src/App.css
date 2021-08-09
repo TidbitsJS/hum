@@ -11,3 +11,7 @@
   --font-base: "STIX Two Text", serif;
   --font-alt: "Open Sans", sans-serif;
 }
+
+.App {
+  position: relative;
+}

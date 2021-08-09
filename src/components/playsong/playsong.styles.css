@@ -1,0 +1,111 @@
+.hum__play-song__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  position: sticky;
+  bottom: 0%;
+  z-index: 10;
+
+  background: var(--primary-color);
+  padding: 0.3rem;
+}
+
+.hum__play-song__container_info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hum_play-song__container__img-div {
+  display: flex;
+}
+
+.hum_play-song__container__img-div img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.hum_play-song__container__desc-div {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 0.3rem;
+}
+
+.hum_play-song__container__desc-div h5 {
+  font-family: var(--font-alt);
+  color: #000;
+  margin-bottom: 0.1rem;
+  font-size: 1rem;
+}
+
+.hum_play-song__container__desc-div p {
+  font-size: 0.8rem;
+  font-family: var(--font-base);
+  color: var(--text-orange);
+}
+
+.hum__play-song__container_actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hum__play-song__container_actions svg {
+  cursor: pointer;
+}
+
+.hum__play-song__container_actions svg:hover {
+  -webkit-animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.slide-top {
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+  }
+}
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(200px);
+    transform: translateY(200px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
