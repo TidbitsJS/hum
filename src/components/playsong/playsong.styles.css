@@ -11,6 +11,21 @@
   padding: 0.3rem;
 }
 
+.hum__play-song__container__no-audio {
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #000;
+  font-family: var(--font-alt);
+  font-weight: 700;
+
+  padding: 0.5rem 0;
+}
+
 .hum__play-song__container_info {
   display: flex;
   flex-direction: row;

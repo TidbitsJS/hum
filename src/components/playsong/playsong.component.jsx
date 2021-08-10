@@ -22,6 +22,15 @@ const PlaySong = () => {
 
   if (hide) return null;
 
+  if (!audio)
+    return (
+      <div className="hum__play-song__container slide-top">
+        <p className="hum__play-song__container__no-audio">
+          Sorry no audio for {title}
+        </p>
+      </div>
+    );
+
   return (
     <>
       <div className="hum__play-song__container slide-top">
