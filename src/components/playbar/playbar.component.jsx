@@ -2,7 +2,12 @@ import React, { useContext } from "react";
 import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { withRouter } from "react-router";
 import { BsMusicNoteList } from "react-icons/bs";
-import { PlayDispatchContext } from "../../context/songContext";
+import {
+  HideContext,
+  HideDispatchContext,
+  PlayContext,
+  PlayDispatchContext,
+} from "../../context/songContext";
 
 import "./playbar.styles.css";
 
@@ -16,7 +21,10 @@ const PlayBar = ({
   playPause,
   history,
 }) => {
+  const playDetails = useContext(PlayContext);
   const setPlayDetails = useContext(PlayDispatchContext);
+  const hide = useContext(HideContext);
+  const setHide = useContext(HideDispatchContext);
 
   const handleClick = () => {
     history.push({
@@ -55,10 +63,11 @@ const PlayBar = ({
         </div>
       </div>
       <div className="hum_song-playbar__container__btn-div">
-        {!playPause[title + subtitle] ? (
+        {!playDetails.status || !playPause[title + subtitle] ? (
           <AiFillPlayCircle
             fontSize={28}
             onClick={() => {
+              if (hide) setHide(false);
               handlePlayDetails(!playPause[title + subtitle]);
               togglePlay(title + subtitle);
             }}
