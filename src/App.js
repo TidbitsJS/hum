@@ -7,24 +7,22 @@ import PlaylistPage from "./pages/platlist/playlist.component";
 import "./App.css";
 import LyricsPage from "./pages/lyrics/lyrics.component";
 import PlaySong from "./components/playsong/playsong.component";
+import { PlayProvider } from "./context/songContext";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Welcome />
-        <SearchPage />
-        <Switch>
-          {/* <Route exact path="/" component={DisplayPage} /> */}
-          <Route exact path="/:key/playlist" component={PlaylistPage} />
-          <Route exact path="/:song/lyrics" component={LyricsPage} />
-        </Switch>
-        <PlaySong
-          title="Mere liye"
-          subtitle="Akhil sachdeva"
-          img={null}
-          audio={null}
-        />
+        <PlayProvider>
+          <Welcome />
+          <SearchPage />
+          <Switch>
+            {/* <Route exact path="/" component={DisplayPage} /> */}
+            <Route exact path="/:key/playlist" component={PlaylistPage} />
+            <Route exact path="/:song/lyrics" component={LyricsPage} />
+          </Switch>
+          <PlaySong />
+        </PlayProvider>
       </Router>
     </div>
   );

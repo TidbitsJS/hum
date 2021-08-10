@@ -22,8 +22,8 @@
 }
 
 .hum_play-song__container__img-div img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -31,14 +31,14 @@
   display: flex;
   flex-direction: column;
 
-  margin-left: 0.3rem;
+  margin-left: 0.5rem;
 }
 
 .hum_play-song__container__desc-div h5 {
   font-family: var(--font-alt);
   color: #000;
+  letter-spacing: 0.6px;
   margin-bottom: 0.1rem;
-  font-size: 1rem;
 }
 
 .hum_play-song__container__desc-div p {

@@ -13,6 +13,9 @@ const PlaylistPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(null);
   const [playlist, setPlaylist] = useState(null);
+  const [playPause, setPlayPause] = useState({
+    show: {},
+  });
 
   const { error, sendRequest } = useHttpClient();
 
@@ -49,6 +52,16 @@ const PlaylistPage = () => {
     }
   }, [linkData]);
 
+  const togglePlayPause = (panel) => {
+    const newState = {
+      show: {
+        [panel]: !playPause.show[panel],
+      },
+    };
+
+    setPlayPause(newState);
+  };
+
   return (
     <>
       {!linkData.state || isError ? (
@@ -73,6 +86,9 @@ const PlaylistPage = () => {
                     img={play.images ? play.images.coverart : defaultImg}
                     key={play.title + index}
                     playNo={index + 1}
+                    audio={play.hub ? play.hub.actions[1].uri : null}
+                    togglePlay={togglePlayPause}
+                    playPause={playPause.show}
                   />
                 ))}
               </div>

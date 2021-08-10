@@ -1,11 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { withRouter } from "react-router";
 import { BsMusicNoteList } from "react-icons/bs";
+import { PlayDispatchContext } from "../../context/songContext";
 
 import "./playbar.styles.css";
 
-const PlayBar = ({ playNo, title, subtitle, img, audio, history }) => {
+const PlayBar = ({
+  playNo,
+  title,
+  subtitle,
+  img,
+  audio,
+  togglePlay,
+  playPause,
+  history,
+}) => {
+  const setPlayDetails = useContext(PlayDispatchContext);
+
   const handleClick = () => {
     history.push({
       pathname: `/${title}/lyrics`,
@@ -15,6 +27,16 @@ const PlayBar = ({ playNo, title, subtitle, img, audio, history }) => {
         cover: img,
         audio: audio,
       },
+    });
+  };
+
+  const handlePlayDetails = (playStatus) => {
+    setPlayDetails({
+      title: title,
+      subtitle: subtitle,
+      image: img,
+      audio: audio,
+      status: playStatus,
     });
   };
 
@@ -33,7 +55,26 @@ const PlayBar = ({ playNo, title, subtitle, img, audio, history }) => {
         </div>
       </div>
       <div className="hum_song-playbar__container__btn-div">
-        <AiFillPlayCircle fontSize={28} />
+        {!playPause[title + subtitle] ? (
+          <AiFillPlayCircle
+            fontSize={28}
+            onClick={() => {
+              handlePlayDetails(!playPause[title + subtitle]);
+              togglePlay(title + subtitle);
+            }}
+          />
+        ) : (
+          <AiFillPauseCircle
+            fontSize={28}
+            onClick={() => {
+              setPlayDetails((prev) => ({
+                ...prev,
+                status: false,
+              }));
+              togglePlay(title + subtitle);
+            }}
+          />
+        )}
         <div className="hum_song-playbar__container__btn-div_lyrics">
           <BsMusicNoteList fontSize={13} onClick={handleClick} />
         </div>

@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AiFillPauseCircle, AiFillPlayCircle } from "react-icons/ai";
 import { MdCancel } from "react-icons/md";
 import defaultImg from "../../assets/default.svg";
+import { PlayContext, PlayDispatchContext } from "../../context/songContext";
 
 import "./playsong.styles.css";
 
-const PlaySong = ({ title, subtitle, image, audio }) => {
-  const [playPause, setPlayPause] = useState(true);
+const PlaySong = () => {
+  const playDetails = React.useContext(PlayContext);
+  const setPlayDetails = React.useContext(PlayDispatchContext);
+  const { title, subtitle, image, audio, status } = playDetails;
 
-  const handlePlayPause = () => {
-    setPlayPause(!playPause);
-  };
+  console.log("PlatDet", playDetails);
 
   return (
     <div className="hum__play-song__container slide-top">
@@ -24,17 +25,27 @@ const PlaySong = ({ title, subtitle, image, audio }) => {
         </div>
       </div>
       <div className="hum__play-song__container_actions">
-        {playPause ? (
+        {status ? (
           <AiFillPauseCircle
             style={{ marginRight: 10 }}
             fontSize={28}
-            onClick={handlePlayPause}
+            onClick={() =>
+              setPlayDetails((prev) => ({
+                ...prev,
+                status: false,
+              }))
+            }
           />
         ) : (
           <AiFillPlayCircle
             style={{ marginRight: 10 }}
             fontSize={28}
-            onClick={handlePlayPause}
+            onClick={() =>
+              setPlayDetails((prev) => ({
+                ...prev,
+                status: true,
+              }))
+            }
           />
         )}
         <MdCancel fontSize={21} />
